@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            {{id}}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let item of adjItems">
+            {{item.title}}
+            <ion-range min="0" max="255" step="10" (ionChange)="rangeChanged($event, item)">
+                <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+                <ion-icon slot="end" name="sunny"></ion-icon>
+            </ion-range>
+        </ion-item>
+        <ion-item *ngFor="let item of toggleItems">
+            <ion-icon [name]="item.icon" slot="start"></ion-icon>
+            {{item.title}}
+            <div class="item-note" slot="end">
+                <ion-toggle (ionChange)="switchClicked(item)"></ion-toggle>
+            </div>
+        </ion-item>
+
+    </ion-list>
+    <ion-list style="margin-top: 100px;">
+        <ion-item>
+            <ion-icon name="calendar" slot="start"></ion-icon>
+            Automated Stop/Start
+            <div class="item-note" slot="end">
+                <ion-toggle (ionChange)="switchClicked(item)"></ion-toggle>
+            </div>
+        </ion-item>
+        <ion-item>
+            <ion-label>Start</ion-label>
+            <ion-datetime display-format="HH:mm"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label>End</ion-label>
+            <ion-datetime display-format="HH:mm"></ion-datetime>
+        </ion-item>
+    </ion-list>
+    <!--
+      <div *ngIf="selectedItem" padding>
+        You navigated here from <b>{{selectedItem.title }}</b>
+      </div>
+    -->
+</ion-content>

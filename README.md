@@ -1,2 +1,1 @@
-# ICHACK19
-Smart Home application.
+IC HACK PROJECT

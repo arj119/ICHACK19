@@ -1,0 +1,7 @@
+{
+  "name": "ichackApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
